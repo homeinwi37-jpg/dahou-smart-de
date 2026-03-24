@@ -19,6 +19,9 @@
             justify-content: center;
             background: linear-gradient(45deg, #f3f4f6, #ffffff);
         }
+        /* إصلاح تداخل أزرار باي بال مع النوافذ القانونية */
+        #legalModal { z-index: 9999 !important; }
+        #paypal-button-container { z-index: 1 !important; position: relative; }
     </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
@@ -62,9 +65,9 @@
     </footer>
 
     <div id="legalModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-10 relative shadow-2xl">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-10 relative shadow-2xl text-left">
             <button onclick="toggleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black text-xl">✕</button>
-            <div id="modalContent" class="prose prose-sm text-gray-600 text-left font-light leading-relaxed">
+            <div id="modalContent" class="prose prose-sm text-gray-600 font-light leading-relaxed">
                 </div>
         </div>
     </div>
@@ -72,7 +75,7 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AWx7Xk6J_syDHqq-vq6CBc9zfT1caFAxxXvK-itMuTubDt_GR_G9BZEtV3q6eiyfqHwiiFuJFxCh5xpR&currency=EUR"></script>
 
     <script>
-        // PayPal Logic
+        // PayPal Implementation
         paypal.Buttons({
             createOrder: function(data, actions) {
                 return actions.order.create({
@@ -88,7 +91,7 @@
             }
         }).render('#paypal-button-container');
 
-        // Modal Logic
+        // Modal Handler
         function toggleModal(type) {
             const modal = document.getElementById('legalModal');
             const content = document.getElementById('modalContent');
@@ -109,12 +112,12 @@
                     <p class="mb-4">Dahou Philosophy - Digital Solutions<br>Inhaber: Adil Dahou<br>Online Services Department</p>
                     <p class="mb-4"><strong>Kontakt:</strong><br>E-Mail: support@dahou-philosophy.pages.dev</p>
                     <hr class="my-6 border-gray-100">
-                    <p class="text-[11px] text-gray-400">Gemäß § 19 UStG wird für Kleinunternehmer keine Umsatzsteuer erhoben.</p>
+                    <p class="text-[11px] text-gray-400 uppercase tracking-widest">Gemäß § 19 UStG wird keine Umsatzsteuer erhoben.</p>
                 `;
             } else if (type === 'privacy') {
                 content.innerHTML = `
                     <h2 class="text-2xl font-bold text-black mb-6 tracking-tight">Datenschutzerklärung</h2>
-                    <p class="mb-4">Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Da wir PayPal als Zahlungsmethode nutzen, erfolgt die Zahlungsabwicklung verschlüsselt über deren Server.</p>
+                    <p class="mb-4 text-sm">Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Da wir PayPal nutzen, erfolgt die Zahlungsabwicklung verschlüsselt über deren Server.</p>
                     <p class="mb-4"><strong>Cookies:</strong> Diese Seite nutzt nur technisch notwendige Cookies für den Checkout-Prozess.</p>
                     <p class="mb-4"><strong>DSGVO:</strong> Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten.</p>
                 `;
