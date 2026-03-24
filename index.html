@@ -73,5 +73,49 @@
             }
         }).render('#paypal-button-container');
     </script>
+    <footer class="py-10 border-t border-gray-100 text-center">
+    <div class="flex justify-center space-x-6 text-xs text-gray-400">
+        <a href="javascript:void(0)" onclick="toggleModal('impressum')" class="hover:underline">Impressum</a>
+        <a href="javascript:void(0)" onclick="toggleModal('privacy')" class="hover:underline">Datenschutz (GDPR)</a>
+    </div>
+</footer>
+
+<div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 relative">
+        <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black">✕</button>
+        <div id="modalContent" class="prose prose-sm text-gray-600 text-left">
+            </div>
+    </div>
+</div>
+
+<script>
+function toggleModal(type) {
+    const modal = document.getElementById('legalModal');
+    const content = document.getElementById('modalContent');
+    
+    if (!type) {
+        modal.classList.add('hidden');
+        return;
+    }
+    
+    modal.classList.remove('hidden');
+    if (type === 'impressum') {
+        content.innerHTML = `
+            <h2 class="font-bold text-xl mb-4">Impressum</h2>
+            <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+            <p>Dahou Philosophy - Digital Solutions<br>Adil Dahou<br>Online Services Department</p>
+            <p><strong>Kontakt:</strong><br>E-Mail: support@dahou-philosophy.pages.dev</p>
+            <p><strong>Umsatzsteuer-ID:</strong><br>Gemäß § 19 UStG wird keine Umsatzsteuer erhoben (Kleinunternehmerstatus).</p>
+        `;
+    } else if (type === 'privacy') {
+        content.innerHTML = `
+            <h2 class="font-bold text-xl mb-4">Datenschutzerklärung</h2>
+            <p>Wir nehmen den Schutz Ihrer Daten ernst. Da wir PayPal als Zahlungsmethode verwenden, werden Transaktionsdaten sicher über deren Server verarbeitet.</p>
+            <p><strong>Cookies:</strong> Wir verwenden nur technisch notwendige Cookies für den Bezahlvorgang.</p>
+            <p><strong>Ihre Rechte:</strong> Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten gemäß DSGVO.</p>
+        `;
+    }
+}
+</script>
 </body>
 </html>
