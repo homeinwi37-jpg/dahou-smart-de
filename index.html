@@ -76,6 +76,9 @@
             </p>
         </div>
     </footer>
+    /* PayPal and Modal Z-Index Management */
+[data-paypal-container], .paypal-buttons, .paypal-menu { z-index: 10 !important; }
+.legal-modal, .modal-overlay, [role="dialog"] { z-index: 1001 !important; }
 
     <div id="legalModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-2xl w-full
