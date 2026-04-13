@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Produktdetails – Dahou Smart Home Commerce.">
+    <title>Produkt – Dahou</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="product-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Dahou</div>
+            <div class="nav-links">
+                <a href="index.html#produkte">Produkte</a>
+                <a href="index.html#vorteile">Vorteile</a>
+                <a href="index.html#support">Support</a>
+            </div>
+            <button class="theme-toggle" aria-label="Darstellung wechseln">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="product-page-main" aria-live="polite">
+        <section class="product-detail">
+            <div class="product-detail-grid">
+                <div class="product-detail-media">
+                    <div class="product-detail-image-wrap">
+                        <img id="product-image" class="product-detail-image" src="" alt="">
+                        <div id="product-image-fallback" class="product-detail-image-fallback" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <div class="product-detail-content">
+                    <p class="product-breadcrumb">
+                        <a class="legal-link" href="index.html#produkte">Zurück zum Katalog</a>
+                    </p>
+
+                    <h1 id="product-name" class="product-detail-title"></h1>
+                    <p id="product-description" class="product-detail-desc"></p>
+
+                    <div class="product-detail-specs">
+                        <h2 class="specs-title">Highlights</h2>
+                        <ul id="product-specs" class="spec-list"></ul>
+                    </div>
+
+                    <div id="order-details" class="order-details">
+                        <h2>Bestelldetails</h2>
+                        <p>Produkt: <span id="order-item"></span></p>
+                        <p>Preis: <span id="order-price"></span>&nbsp;EUR <span class="price-legal">(inkl. 19&nbsp;% MwSt., zzgl. Versand)</span></p>
+                    </div>
+
+                    <p id="payment-status" class="payment-status" role="status" aria-live="polite"></p>
+                    <h2 class="specs-title">Jetzt kaufen</h2>
+                    <div id="paypal-button-container" class="paypal-button-container"></div>
+
+                    <p class="payment-back"><a href="payment.html">Zur Kasse (PayPal)</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="agb.html">AGB</a></li>
+                        <li><a href="widerruf.html">Widerrufsrecht</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="mailto:kontakt@dahou-smart.de">Kontakt</a></li>
+                        <li><a href="#versand">Versand &amp; Lieferung</a></li>
+                        <li><a href="widerruf.html">Retoure &amp; Widerruf</a></li>
+                        <li><a href="#garantie">Garantie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="#ueber-uns">Über uns</a></li>
+                        <li><a href="#philosophie">Unsere Mission</a></li>
+                        <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dahou. Alle Rechte vorbehalten.</p>
+                <p class="legal-notice">Alle Preise in EUR. 24,99&nbsp;€ inkl. 19&nbsp;% MwSt., zzgl. Versand.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="product.js"></script>
+</body>
+</html>
+

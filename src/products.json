@@ -1,0 +1,34 @@
+[
+  {
+    "id": "smart-feeder-v1",
+    "name": "Smart Feeder Pro",
+    "price_de": 189.99,
+    "description": "Präzisionsfütterung mit KI-Analyse für Ihren Liebling.",
+    "specs_list": ["App-Steuerung", "Kamera", "Edelstahlnapf"],
+    "image_url": "png/1.png"
+  },
+  {
+    "id": "interactive-toy-x",
+    "name": "Aktives Spielzeug X",
+    "price_de": 59.99,
+    "description": "Fördert die kognitive Entwicklung durch interaktives Design.",
+    "specs_list": ["USB-C", "Automatik", "Robust"],
+    "image_url": "png/2.png"
+  },
+  {
+    "id": "orthopedic-bed-lux",
+    "name": "Orthopädisches Luxusbett",
+    "price_de": 249.99,
+    "description": "Maximaler Komfort für gesunde Gelenke und tiefen Schlaf.",
+    "specs_list": ["Memory Foam", "Waschbar", "Bio-Baumwolle"],
+    "image_url": "png/3.png"
+  },
+  {
+    "id": "safety-tracker-gps",
+    "name": "Sicherheits-GPS Tracker",
+    "price_de": 89.99,
+    "description": "Echtzeit-Ortung für maximale Sicherheit weltweit.",
+    "specs_list": ["LTE-M", "Wasserdicht", "10 Tage Akku"],
+    "image_url": "png/11.png"
+  }
+]

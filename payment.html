@@ -1,55 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Page</title>
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
+    <meta name="description" content="Sichere Kasse – Dahou Smart Energy Manager, Zahlung mit PayPal.">
+    <title>Kasse – Dahou Smart Energy Manager</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Checkout</h1>
+<body class="payment-page">
+    <main class="payment-main">
+        <h1>Kasse</h1>
+        <p class="payment-lead">Bitte prüfen Sie Ihre Bestellung und schließen Sie die Zahlung sicher über PayPal ab.</p>
 
-    <div id="order-details">
-        <h2>Order Details</h2>
-        <p>Item: Example Product</p>
-        <p>Price: $20.00</p>
-    </div>
+        <div id="order-details" class="order-details">
+            <h2>Bestelldetails</h2>
+            <p>Produkt: <span id="order-item">Dahou Smart Energy Manager</span></p>
+            <p>Preis: <span id="order-price">24.99</span>&nbsp;EUR <span class="price-legal">(inkl. 19&nbsp;% MwSt., zzgl. Versand)</span></p>
+        </div>
 
-    <div id="paypal-button-container"></div>
+        <p id="payment-status" class="payment-status" role="status" aria-live="polite"></p>
 
-    <script>
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '20.00'
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    // Handle successful order capture
-                    console.log('Transaction completed by ' + details.payer.name.given);
-                    // Example: Submit order details to Supabase
-                    const orderDetails = {
-                        item: 'Example Product',
-                        price: '20.00',
-                        transactionID: details.id
-                    };
-                    fetch('https://YOUR_SUPABASE_URL/rest/v1/orders', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer YOUR_SUPABASE_ANON_KEY'
-                        },
-                        body: JSON.stringify(orderDetails)
-                    }).then(response => response.json())
-                    .then(data => console.log(data));
-                });
-            }
-        }).render('#paypal-button-container');
-    </script>
+        <div id="paypal-button-container" class="paypal-button-container"></div>
+
+        <p class="payment-back"><a href="index.html">Zurück zum Shop</a></p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="agb.html">AGB</a></li>
+                        <li><a href="widerruf.html">Widerrufsrecht</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="mailto:kontakt@dahou-smart.de">Kontakt</a></li>
+                        <li><a href="#versand">Versand &amp; Lieferung</a></li>
+                        <li><a href="widerruf.html">Retoure &amp; Widerruf</a></li>
+                        <li><a href="#garantie">Garantie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="#ueber-uns">Über uns</a></li>
+                        <li><a href="#philosophie">Unsere Mission</a></li>
+                        <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dahou. Alle Rechte vorbehalten.</p>
+                <p class="legal-notice">Alle Preise in EUR. 24,99&nbsp;€ inkl. 19&nbsp;% MwSt., zzgl. Versand.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="payment.js"></script>
 </body>
 </html>
